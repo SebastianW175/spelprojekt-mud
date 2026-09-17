@@ -4,7 +4,7 @@
     {
         public void ShowGraphic()
         {
-            Console.WriteLine("");
+            Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine("          ^^                   @@@@@@@@@");
             Console.WriteLine("      ^^       ^^            @@@@@@@@@@@@@@@");
             Console.WriteLine("                           @@@@@@@@@@@@@@@@@@              ^^");
@@ -15,7 +15,7 @@
             Console.WriteLine("  ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~ ");
             Console.WriteLine("~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~");
             Console.WriteLine("      ~             ~        ~      ~      ~~   ~             ~");
-            Console.WriteLine("");
+            Console.WriteLine("------------------------------------------------------------------------");
         }
     }
 }

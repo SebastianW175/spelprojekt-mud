@@ -4,21 +4,14 @@ using System.Text;
 
 namespace MUD
 {
-    public class Player
+    public class Enemy
     {
         public string? Name;
-        public string? Choice;
-        public string? age;
-        public string? Cclass;
         public int Health;
+        public int Damage;
         public int MaxHealth;
         public int AttackPow;
-        public int DefensePow;
         public int MagicPow;
-        public int MagicPoints;
-        public int MaxMagicPoints;
-        public int Damage;
-        public bool Defend;
         public bool Dead;
     }
 }
