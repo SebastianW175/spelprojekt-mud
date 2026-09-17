@@ -2,25 +2,38 @@
 
 namespace MUD.Worlds
 {
+    
     public class LevelOne
     {
-        public string Name;
-        public string age;
-        public string Cclass;
-        public int Health;
-        public bool Dead;
 
+        public Player PlayerCar;
         public void StartGame()
         {
 
             Console.Write("Enter your name:");
-            Name = Console.ReadLine();
+            PlayerCar.Name = Console.ReadLine();
             Console.Write("Enter your age:");
-            age = Console.ReadLine();
+            PlayerCar.age = Console.ReadLine();
             Console.Write("Enter your character class:");
-            Cclass = Console.ReadLine();
-            Console.WriteLine("you are " + Name);
-            Console.WriteLine("a " + age + " year old " + Cclass);
+
+            int i = 0;
+            while (i < 1)
+            {
+                PlayerCar.Choice = Console.ReadLine();
+                Console.Write("Enter your character class:");
+                if (PlayerCar.Choice == "1")
+                {
+
+                }
+            }
+
+            PlayerCar.Cclass = Console.ReadLine();
+            Console.WriteLine("you are " + PlayerCar.Name);
+            Console.WriteLine("a " + PlayerCar.age + " year old " + PlayerCar.Cclass);
+            Console.WriteLine("check status?");
+
+            PlayerStatus check = new PlayerStatus();
+            check.StatusCheck();
 
             /*Sea s = new Sea();
             s.ShowGraphic();
