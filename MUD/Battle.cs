@@ -8,7 +8,7 @@ namespace MUD
     {
         public void BattleStart(Player PlayerCar, Enemy EnemyCar)
         {
-            Console.WriteLine("a enemy appears!");
+            Console.WriteLine("a battle begins!");
             Console.ReadKey(true);
 
             PlayerCar.Damage = 0;
@@ -47,6 +47,13 @@ namespace MUD
                 Console.WriteLine("but nobody came...?");
                 EnemyCar.Dead = true;
             }
+
+            if (EnemyCar.Dead == false)
+            {
+                Console.WriteLine("a " + EnemyCar.Name + " appears!");
+                Console.ReadKey(true);
+            }
+
             while (EnemyCar.Dead == false)
             {
                 PlayerTurn yourturn = new PlayerTurn();

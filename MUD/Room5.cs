@@ -16,6 +16,14 @@ namespace MUD
             Console.WriteLine("you are now in the sewer system");
             Console.ReadKey(true);
 
+            if (PlayerCar.Battle2 == false)
+            {
+                Battle battle2 = new Battle();
+                Enemy EnemyCar = new Enemy();
+                battle2.BattleStart(PlayerCar, EnemyCar);
+                PlayerCar.Battle2 = true;
+            }
+
             while (PlayerCar.roomNumber == 4)
             {
                 PlayerAction yourAction = new PlayerAction();

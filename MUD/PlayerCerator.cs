@@ -12,12 +12,13 @@ namespace MUD
             PlayerCar.Name = Console.ReadLine();
             Console.Write("Enter your age:");
             PlayerCar.age = Console.ReadLine();
-            Console.WriteLine("Enter your character class:");
+            Console.WriteLine("Enter your character class.");
             Console.WriteLine("warior   tank   mage");
 
             int i = 0;
             while (i < 1)
             {
+                Console.Write("class:");
                 PlayerCar.Choice = Console.ReadLine();
                 switch (PlayerCar.Choice)
                 {
@@ -51,6 +52,14 @@ namespace MUD
             PlayerCar.MaxHealth = 100;
             PlayerCar.MagicPoints = 50;
             PlayerCar.MaxMagicPoints = 50;
+            PlayerCar.Battle1 = false;
+            PlayerCar.Battle2 = false;
+            PlayerCar.Battle3 = false;
+            PlayerCar.Battle4 = false;
+            PlayerCar.Battle5 = false;
+            PlayerCar.Chest1 = false;
+            PlayerCar.Chest2 = false;
+            PlayerCar.Chest3 = false;
         }
     }
 }

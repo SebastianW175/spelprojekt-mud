@@ -15,6 +15,12 @@ namespace MUD
             PlayerCar.Gold += randomNumberGold;
             Console.WriteLine("You gained " + randomNumberGold + " gold and got stronger!");
             Console.ReadKey(true);
+            Console.WriteLine("items you obtained:");
+
+            Items itemdrop = new Items();
+            itemdrop.ItemDrop(PlayerCar);
+
+            Console.ReadKey(true);
 
             switch (PlayerCar.Cclass)
             {
@@ -40,7 +46,7 @@ namespace MUD
                    
                     break;
                 default:
-                    Console.WriteLine("an error occurred.");
+                    Console.WriteLine("an error occurred while incrementing stats.");
                     break;
             }
             PlayerCar.MaxHealth += 20;

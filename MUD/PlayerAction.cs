@@ -9,7 +9,7 @@ namespace MUD
     {
         public void PlayerChoiceAction(Player PlayerCar)
         {
-            Console.WriteLine("what will you do?");
+            Console.Write("what will you do:");
             int i = 0;
             while (i < 1)
             {
@@ -20,7 +20,8 @@ namespace MUD
                         
                         break;
                     case "inventory":
-                        
+                        Inventory inventory = new Inventory();
+                        inventory.PlayerInventory(PlayerCar);
                         break;
                     case "status":
                         PlayerStatus check = new PlayerStatus();

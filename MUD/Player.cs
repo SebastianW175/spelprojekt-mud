@@ -21,6 +21,7 @@ namespace MUD
         public int Damage;
         public int roomNumber;
         public bool Defend;
+        public bool HasUsedItem;
         public bool Dead;
         public bool Chest1;
         public bool Chest2;
@@ -29,5 +30,7 @@ namespace MUD
         public bool Battle2;
         public bool Battle3;
         public bool Battle4;
+        public bool Battle5;
+        public List<string> Inventory = new List<string>();
     }
 }

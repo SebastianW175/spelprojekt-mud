@@ -11,6 +11,7 @@ namespace MUD
             int i = 0;
             while (i < 1)
             {
+                Console.ReadKey(true);
                 if (PlayerCar.roomNumber == 0)
                 {
                     Room1 room1 = new Room1();
@@ -20,6 +21,11 @@ namespace MUD
                 {
                     Room2 room2 = new Room2();
                     room2.PlayerInRoom2(new Room(), PlayerCar);
+                }
+                else if (PlayerCar.roomNumber == 2)
+                {
+                    Room3 room3 = new Room3();
+                    room3.PlayerInRoom3(new Room(), PlayerCar);
                 }
                 else if (PlayerCar.roomNumber == 3)
                 {

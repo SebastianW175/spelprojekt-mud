@@ -16,6 +16,14 @@ namespace MUD
             Console.WriteLine("you are now in the abandoned storage");
             Console.ReadKey(true);
 
+            if (PlayerCar.Battle4 == false)
+            {
+                Battle battle4 = new Battle();
+                Enemy EnemyCar = new Enemy();
+                battle4.BattleStart(PlayerCar, EnemyCar);
+                PlayerCar.Battle4 = true;
+            }
+
             while (PlayerCar.roomNumber == 7)
             {
                 PlayerAction yourAction = new PlayerAction();

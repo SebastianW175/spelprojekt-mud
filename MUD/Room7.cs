@@ -16,6 +16,14 @@ namespace MUD
             Console.WriteLine("you are now in the leaning tower");
             Console.ReadKey(true);
 
+            if (PlayerCar.Battle5 == false)
+            {
+                Battle battle5 = new Battle();
+                Enemy EnemyCar = new Enemy();
+                battle5.BattleStart(PlayerCar, EnemyCar);
+                PlayerCar.Battle5 = true;
+            }
+
             while (PlayerCar.roomNumber == 6)
             {
                 PlayerAction yourAction = new PlayerAction();

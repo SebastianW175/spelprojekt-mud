@@ -9,6 +9,7 @@ namespace MUD
         public void StartPlayerTurn(Player PlayerCar, Enemy EnemyCar)
         {
             PlayerCar.Defend = false;
+            PlayerCar.HasUsedItem = false;
             Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine("it's your turn");
             Console.WriteLine("------------------------------------------------------------------------");
@@ -56,7 +57,7 @@ namespace MUD
                     {
                         Console.WriteLine("you cast heal");
                         Console.ReadKey(true);
-                        PlayerCar.Health = PlayerCar.Health + (PlayerCar.MagicPow * 5 + 15);
+                        PlayerCar.Health = PlayerCar.Health + (PlayerCar.MagicPow * 4 + 15);
                         PlayerCar.MagicPoints -= 10;
                         Console.WriteLine("you lost 10 MP");
                         Console.ReadKey(true);
@@ -84,7 +85,7 @@ namespace MUD
                         Console.WriteLine("you cast kill");
                         Console.ReadKey(true);
                         Random kill = new Random();
-                        int randomNumberKill = kill.Next(PlayerCar.MagicPow, PlayerCar.MagicPow * 6);
+                        int randomNumberKill = kill.Next(PlayerCar.MagicPow * 3, PlayerCar.MagicPow * 7);
                         PlayerCar.Damage = randomNumberKill;
                         PlayerCar.MagicPoints -= 15;
                         Console.WriteLine("you lost 15 MP");
@@ -92,13 +93,33 @@ namespace MUD
                         break;
                     }
                 }
-                else if (PlayerCar.Choice == "Defend")
+                else if (PlayerCar.Choice == "defend")
                 {
                     Console.WriteLine("------------------------------------------------------------------------");
                     PlayerCar.Defend = true;
                     PlayerCar.MagicPoints += 20;
                     Console.WriteLine("you take a defensive stance and gain 20 MP");
                     break;
+                }
+                else if (PlayerCar.Choice == "inventory" || PlayerCar.Choice == "item")
+                {
+                    Console.WriteLine("------------------------------------------------------------------------");
+                    Console.WriteLine("you open your inventory");
+                    Console.ReadKey(true);
+                    if (PlayerCar.Inventory.Count == 0)
+                    {
+                        Console.WriteLine("your inventory is empty");
+                    }
+                    else
+                    {
+                        Console.WriteLine("you have the following items in your inventory:");
+                        UseItem useItem = new UseItem();
+                        useItem.UsePlayerInventoryItem(PlayerCar);
+                        if (PlayerCar.HasUsedItem == true)
+                        {
+                            break;
+                        }
+                    }
                 }
                 else
                 {
@@ -111,7 +132,7 @@ namespace MUD
             if (PlayerCar.Choice == "attack" || PlayerCar.Choice == "fireball" || PlayerCar.Choice == "kill")
             {
                 Random Crit = new Random();
-                int randomNumberCrit = Crit.Next(1, 8);
+                int randomNumberCrit = Crit.Next(1, 6);
                 if (randomNumberCrit == 1)
                 {
                     PlayerCar.Damage = PlayerCar.Damage * 2;

@@ -16,6 +16,14 @@ namespace MUD
             Console.WriteLine("you are now in the main hall");
             Console.ReadKey(true);
 
+            if (PlayerCar.Battle1 == false)
+            {
+                Battle battle1 = new Battle();
+                Enemy EnemyCar = new Enemy();
+                battle1.BattleStart(PlayerCar, EnemyCar);
+                PlayerCar.Battle1 = true;
+            }
+
             while (PlayerCar.roomNumber == 1)
             {
                 PlayerAction yourAction = new PlayerAction();

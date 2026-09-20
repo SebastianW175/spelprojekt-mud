@@ -16,8 +16,7 @@ namespace MUD
             Console.WriteLine("you are now in the dungeon entrance");
             Console.ReadKey(true);
 
-            int i = 0;
-            while (i < 1)
+            while (PlayerCar.roomNumber == 0)
             {
                 PlayerAction yourAction = new PlayerAction();
                 yourAction.PlayerChoiceAction(PlayerCar);
@@ -26,7 +25,6 @@ namespace MUD
                     case "north":
                         Console.WriteLine("you move north");
                         PlayerCar.roomNumber = 1;
-                        i = 1;
                         break;
                     case "west":
                         Console.WriteLine("there is a wall to the west");

@@ -4,27 +4,27 @@ using System.Text;
 
 namespace MUD
 {
-    public class Room4
+    public class Room3
     {
-        public void PlayerInRoom4(Room RoomSet, Player PlayerCar)
+        public void PlayerInRoom3(Room RoomSet, Player PlayerCar)
         {
-            RoomSet.Name = "Room 4";
+            RoomSet.Name = "Room 3";
             RoomSet.north = true;
-            RoomSet.west = true;
-            RoomSet.east = true;
-            RoomSet.south = true;
-            Console.WriteLine("you are now in the resting grounds");
+            RoomSet.west = false;
+            RoomSet.east = false;
+            RoomSet.south = false;
+            Console.WriteLine("you are now in the treasure chamber");
             Console.ReadKey(true);
 
-            if (PlayerCar.Battle3 == false)
+            if (PlayerCar.Battle5 == false)
             {
-                Battle battle3 = new Battle();
+                Boss battle5 = new Boss();
                 Enemy EnemyCar = new Enemy();
-                battle3.BattleStart(PlayerCar, EnemyCar);
-                PlayerCar.Battle3 = true;
+                battle5.BossBattleStart(PlayerCar, EnemyCar);
+                PlayerCar.Battle5 = true;
             }
 
-            while (PlayerCar.roomNumber == 3)
+            while (PlayerCar.roomNumber == 2)
             {
                 PlayerAction yourAction = new PlayerAction();
                 yourAction.PlayerChoiceAction(PlayerCar);
@@ -34,15 +34,14 @@ namespace MUD
                         Console.WriteLine("there is a wall to the north");
                         break;
                     case "west":
-                        Console.WriteLine("you move west");
-                        PlayerCar.roomNumber = 5;
+                        Console.WriteLine("there is a wall to the west");
                         break;
                     case "east":
-                        Console.WriteLine("you move east");
-                        PlayerCar.roomNumber = 1;
+                        Console.WriteLine("there is a wall to the east");
                         break;
                     case "south":
-                        Console.WriteLine("there is a wall to the south");
+                        Console.WriteLine("you move south");
+                        PlayerCar.roomNumber = 1;
                         break;
                     default:
                         Console.WriteLine("an error occurred when trying to move");

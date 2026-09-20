@@ -34,7 +34,6 @@ namespace MUD.Worlds
             Console.ReadKey(true);
             Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine("you enter the dungeon and now are in the first room.");
-            Console.ReadKey(true);
 
             Dungeon inDungeon = new Dungeon();
             inDungeon.DungeonStart(PlayerCar, RoomSet);
