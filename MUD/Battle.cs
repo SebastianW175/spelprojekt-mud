@@ -8,6 +8,9 @@ namespace MUD
     {
         public void BattleStart(Player PlayerCar, Enemy EnemyCar)
         {
+            Console.WriteLine("a enemy appears!");
+            Console.ReadKey(true);
+
             PlayerCar.Damage = 0;
             Random rand = new Random();
             int randomNumber = rand.Next(1, 4);
@@ -16,8 +19,8 @@ namespace MUD
             {
                 EnemyCar.Name = "goblin";
                 EnemyCar.Dead = false;
-                EnemyCar.Health = 75;
-                EnemyCar.MaxHealth = 75;
+                EnemyCar.Health = 100;
+                EnemyCar.MaxHealth = 100;
                 EnemyCar.AttackPow = 10;
                 EnemyCar.MagicPow = 2;
             }
@@ -25,8 +28,8 @@ namespace MUD
             {
                 EnemyCar.Name = "wizard";
                 EnemyCar.Dead = false;
-                EnemyCar.Health = 45;
-                EnemyCar.MaxHealth = 45;
+                EnemyCar.Health = 65;
+                EnemyCar.MaxHealth = 65;
                 EnemyCar.AttackPow = 5;
                 EnemyCar.MagicPow = 10;
             }
@@ -34,14 +37,15 @@ namespace MUD
             {
                 EnemyCar.Name = "skeleton";
                 EnemyCar.Dead = false;
-                EnemyCar.Health = 50;
-                EnemyCar.MaxHealth = 50;
+                EnemyCar.Health = 80;
+                EnemyCar.MaxHealth = 80;
                 EnemyCar.AttackPow = 7;
                 EnemyCar.MagicPow = 5;
             }
             else
             {
-                Console.WriteLine("An error occurred while generating the enemy.");
+                Console.WriteLine("but nobody came...?");
+                EnemyCar.Dead = true;
             }
             while (EnemyCar.Dead == false)
             {
@@ -58,8 +62,8 @@ namespace MUD
                     
                 }
             }
-            Console.WriteLine("You have defeated the " + EnemyCar.Name + "!");
-            Console.ReadKey(true);
+            Victory victory = new Victory();
+            victory.BattleWon(PlayerCar);
         }
     }
 }

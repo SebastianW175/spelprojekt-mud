@@ -11,6 +11,7 @@ namespace MUD
         public string? age;
         public string? Cclass;
         public int Health;
+        public int Gold;
         public int MaxHealth;
         public int AttackPow;
         public int DefensePow;
@@ -18,7 +19,15 @@ namespace MUD
         public int MagicPoints;
         public int MaxMagicPoints;
         public int Damage;
+        public int roomNumber;
         public bool Defend;
         public bool Dead;
+        public bool Chest1;
+        public bool Chest2;
+        public bool Chest3;
+        public bool Battle1;
+        public bool Battle2;
+        public bool Battle3;
+        public bool Battle4;
     }
 }

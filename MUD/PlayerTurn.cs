@@ -8,8 +8,9 @@ namespace MUD
     {
         public void StartPlayerTurn(Player PlayerCar, Enemy EnemyCar)
         {
+            PlayerCar.Defend = false;
+            Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine("it's your turn");
-            Console.ReadKey(true);
             Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine(PlayerCar.Name + " " + PlayerCar.Health + "/" + PlayerCar.MaxHealth + "HP   " + PlayerCar.MagicPoints + "/" + PlayerCar.MaxMagicPoints + "MP");
             Console.WriteLine(EnemyCar.Name + " " + EnemyCar.Health + "/" + EnemyCar.MaxHealth + "HP");
@@ -21,6 +22,7 @@ namespace MUD
 
                 if (PlayerCar.Choice == "attack")
                 {
+                    Console.WriteLine("------------------------------------------------------------------------");
                     Console.WriteLine("you attack the enemy");
                     PlayerCar.Damage = (PlayerCar.AttackPow * 2);
 
@@ -28,6 +30,7 @@ namespace MUD
                 }
                 else if (PlayerCar.Choice == "fireball")
                 {
+                    Console.WriteLine("------------------------------------------------------------------------");
                     if (PlayerCar.MagicPoints < 20)
                     {
                         Console.WriteLine("you don't have enough MP");
@@ -44,6 +47,7 @@ namespace MUD
                 }
                 else if (PlayerCar.Choice == "heal")
                 {
+                    Console.WriteLine("------------------------------------------------------------------------");
                     if (PlayerCar.MagicPoints < 10)
                     {
                         Console.WriteLine("you don't have enough MP");
@@ -59,7 +63,7 @@ namespace MUD
                         if (PlayerCar.Health >= PlayerCar.MaxHealth)
                         {
                             PlayerCar.Health = PlayerCar.MaxHealth;
-                            Console.WriteLine("your HP was restored!");
+                            Console.WriteLine("your HP was fully restored!");
                         }
                         else
                         {
@@ -70,6 +74,7 @@ namespace MUD
                 }
                 else if (PlayerCar.Choice == "kill")
                 {
+                    Console.WriteLine("------------------------------------------------------------------------");
                     if (PlayerCar.MagicPoints < 15)
                     {
                         Console.WriteLine("you don't have enough MP");
@@ -80,7 +85,7 @@ namespace MUD
                         Console.ReadKey(true);
                         Random kill = new Random();
                         int randomNumberKill = kill.Next(PlayerCar.MagicPow, PlayerCar.MagicPow * 6);
-                        EnemyCar.Health -= randomNumberKill;
+                        PlayerCar.Damage = randomNumberKill;
                         PlayerCar.MagicPoints -= 15;
                         Console.WriteLine("you lost 15 MP");
 
@@ -89,6 +94,7 @@ namespace MUD
                 }
                 else if (PlayerCar.Choice == "Defend")
                 {
+                    Console.WriteLine("------------------------------------------------------------------------");
                     PlayerCar.Defend = true;
                     PlayerCar.MagicPoints += 20;
                     Console.WriteLine("you take a defensive stance and gain 20 MP");
@@ -96,7 +102,7 @@ namespace MUD
                 }
                 else
                 {
-                    Console.WriteLine("choose an action next time");
+                    Console.WriteLine("unknown command. choose an action next time");
                 }
             }
 

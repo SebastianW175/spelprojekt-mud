@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MUD
 {
-    public class EnemyTurn
+    public class BossTurn
     {
-        public void StartEnemyTurn(Player PlayerCar, Enemy EnemyCar)
+        public void StartbossTurn(Player PlayerCar, Enemy EnemyCar)
         {
             Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine("now it's the " + EnemyCar.Name + "'s turn");
@@ -16,17 +16,17 @@ namespace MUD
             if (randomNumber1 == 1 || randomNumber1 == 2)
             {
                 EnemyCar.Damage = (EnemyCar.AttackPow * 4 / PlayerCar.DefensePow);
-                Console.WriteLine("the " + EnemyCar.Name + " attacks you");
+                Console.WriteLine("the " + EnemyCar.Name + " attacks you with its claws");
             }
             else if (randomNumber1 == 3)
             {
                 EnemyCar.Damage = (EnemyCar.AttackPow * 4 + EnemyCar.MagicPow * 3 / PlayerCar.DefensePow);
-                Console.WriteLine("the " + EnemyCar.Name + " hits you with a magic attack");
+                Console.WriteLine("the " + EnemyCar.Name + " hits you with a fireball");
             }
             else if (randomNumber1 == 4)
             {
-                EnemyCar.Health = EnemyCar.Health + EnemyCar.MagicPow * 3;
-                Console.WriteLine("the " + EnemyCar.Name + " heals itself");
+                PlayerCar.MagicPoints -= 15;
+                Console.WriteLine("the " + EnemyCar.Name + " steals your MP");
             }
             else
             {
@@ -50,19 +50,27 @@ namespace MUD
             }
             else if (randomNumber1 == 4)
             {
-                Console.WriteLine("the " + EnemyCar.Name + " has " + EnemyCar.Health + "HP left");
+                if (PlayerCar.MagicPoints <= 0)
+                {
+                    Console.WriteLine("you have no MP left");
+                    PlayerCar.MagicPoints = 0;
+                }
+                else
+                {
+                    Console.WriteLine("you have " + PlayerCar.MagicPoints + "MP left");
+                }
             }
-            else 
-            { 
-            
+            else
+            {
+
             }
             if (PlayerCar.Health <= 0)
             {
                 PlayerCar.Dead = true;
             }
             else
-            { 
-            
+            {
+
             }
             Console.ReadKey(true);
         }
