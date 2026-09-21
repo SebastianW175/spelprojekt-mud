@@ -18,22 +18,22 @@ namespace MUD
                 if (randomNumberWhatItems == 1 || randomNumberWhatItems == 2)
                 {
                     PlayerCar.Inventory.Add("HP Potion");
-                    Console.WriteLine("HP Potion obtained.");
+                    Console.WriteLine("HP Potion obtained");
                 }
                 else if (randomNumberWhatItems == 3 || randomNumberWhatItems == 4)
                 {
                     PlayerCar.Inventory.Add("MP Potion");
-                    Console.WriteLine("MP Potion obtained.");
+                    Console.WriteLine("MP Potion obtained");
                 }
                 else if (randomNumberWhatItems == 5)
                 {
                     PlayerCar.Inventory.Add("AllMax Potion");
-                    Console.WriteLine("AllMax Potion obtained.");
+                    Console.WriteLine("AllMax Potion obtained");
                 }
                 else if (randomNumberWhatItems == 6)
                 {
                     PlayerCar.Inventory.Add("Steel Potion");
-                    Console.WriteLine("Steel Potion obtained.");
+                    Console.WriteLine("Steel Potion obtained");
                 }
             }
         }

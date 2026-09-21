@@ -15,7 +15,7 @@ namespace MUD
             int randomNumber1 = rand1.Next(1, 5);
             if (randomNumber1 == 1 || randomNumber1 == 2)
             {
-                EnemyCar.Damage = (EnemyCar.AttackPow * 4 / PlayerCar.DefensePow);
+                EnemyCar.Damage = (EnemyCar.AttackPow * 9 / PlayerCar.DefensePow);
                 Console.WriteLine("the " + EnemyCar.Name + " attacks you with its claws");
             }
             else if (randomNumber1 == 3)

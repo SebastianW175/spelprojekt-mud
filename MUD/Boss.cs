@@ -4,11 +4,12 @@ using System.Text;
 
 namespace MUD
 {
-    internal class Boss
+    public class Boss
     {
-        public void BossBattleStart(Player PlayerCar, Enemy EnemyCar)
+        public void BossBattleStart(Player PlayerCar, Enemy EnemyCar, Room RoomSet)
         {
-            Console.WriteLine("the dungeon boss appears!");
+            PlayerCar.IsInBattle = true;
+            Console.WriteLine("you are suddenly attacked by the dungeon boss!");
             Console.ReadKey(true);
 
             PlayerCar.Damage = 0;
@@ -17,12 +18,18 @@ namespace MUD
             EnemyCar.Health = 700;
             EnemyCar.MaxHealth = 700;
             EnemyCar.AttackPow = 17;
+            EnemyCar.DefensePow = 20;
             EnemyCar.MagicPow = 15;
 
             while (EnemyCar.Dead == false)
             {
+                if (PlayerCar.Dead == true)
+                {
+                    Dead dead = new Dead();
+                    dead.PlayerDead(PlayerCar, EnemyCar, RoomSet);
+                }
                 PlayerTurn yourturn = new PlayerTurn();
-                yourturn.StartPlayerTurn(PlayerCar, EnemyCar);
+                yourturn.StartPlayerTurn(PlayerCar, EnemyCar, RoomSet);
 
                 if (EnemyCar.Dead == false)
                 {
@@ -34,8 +41,8 @@ namespace MUD
 
                 }
             }
-            Victory victory = new Victory();
-            victory.BattleWon(PlayerCar);
+            VictoryBoss victoryboss = new VictoryBoss();
+            victoryboss.BattleWonBoss(PlayerCar);
         }
     }
 }

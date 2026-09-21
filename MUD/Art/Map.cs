@@ -9,17 +9,17 @@ namespace MUD.Art
         public void ShowMapGraphic()
         {
             Console.WriteLine("------------------------------------------------------------------------");
-            Console.WriteLine("        /¨¨¨\\              /¨¨¨\\");
-            Console.WriteLine("        |   |              |   |");
-            Console.WriteLine("        \\___/              \\___/");
-            Console.WriteLine("          |                  |");
-            Console.WriteLine("/¨¨¨\\   /¨¨¨\\      /¨¨¨\\   /¨¨¨\\   /¨¨¨\\");
-            Console.WriteLine("|   |---|   |------|   |---|   |---|   |");
-            Console.WriteLine("\\___/   \\___/      \\___/   \\___/   \\___/");
-            Console.WriteLine("                             |");
-            Console.WriteLine("                           /¨¨¨\\");
-            Console.WriteLine("                           |   |");
-            Console.WriteLine("                           \\___/");
+            Console.WriteLine("D = dungeon entrance     |           /¨¨¨\\              /¨¨¨\\");
+            Console.WriteLine("M = main hall            |           | L |              | T |");
+            Console.WriteLine("S = sewer system         |           \\___/              \\___/");
+            Console.WriteLine("R = resting grounds      |             |                  |");
+            Console.WriteLine("H = hidden camp          |   /¨¨¨\\   /¨¨¨\\      /¨¨¨\\   /¨¨¨\\   /¨¨¨\\");
+            Console.WriteLine("A = abandoned storage    |   | A |---| H |------| R |---| M |---| S |");
+            Console.WriteLine("L = leaning tower        |   \\___/   \\___/      \\___/   \\___/   \\___/");
+            Console.WriteLine("T = treasure chamber     |                                |");
+            Console.WriteLine("                         |                              /¨¨¨\\");
+            Console.WriteLine("                         |                              | D |");
+            Console.WriteLine("                         |                              \\___/");
             Console.WriteLine("------------------------------------------------------------------------");
         }
     }

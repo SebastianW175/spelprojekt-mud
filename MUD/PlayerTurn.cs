@@ -6,7 +6,7 @@ namespace MUD
 {
     public class PlayerTurn
     {
-        public void StartPlayerTurn(Player PlayerCar, Enemy EnemyCar)
+        public void StartPlayerTurn(Player PlayerCar, Enemy EnemyCar, Room RoomSet)
         {
             PlayerCar.Defend = false;
             PlayerCar.HasUsedItem = false;
@@ -16,7 +16,7 @@ namespace MUD
             Console.WriteLine(PlayerCar.Name + " " + PlayerCar.Health + "/" + PlayerCar.MaxHealth + "HP   " + PlayerCar.MagicPoints + "/" + PlayerCar.MaxMagicPoints + "MP");
             Console.WriteLine(EnemyCar.Name + " " + EnemyCar.Health + "/" + EnemyCar.MaxHealth + "HP");
 
-            Console.WriteLine("Choose an action: attack, fireball, heal, kill, defend");
+            Console.Write("Choose an action:");
             while (true)
             {
                 PlayerCar.Choice = Console.ReadLine();
@@ -121,6 +121,11 @@ namespace MUD
                         }
                     }
                 }
+                else if (PlayerCar.Choice == "help")
+                {
+                    Help help = new Help();
+                    help.PlayerHelp(PlayerCar, RoomSet);
+                }
                 else
                 {
                     Console.WriteLine("unknown command. choose an action next time");
@@ -147,6 +152,7 @@ namespace MUD
                 {
 
                 }
+                PlayerCar.Damage -= EnemyCar.DefensePow;
                 EnemyCar.Health -= PlayerCar.Damage;
                 Console.WriteLine("you did " + PlayerCar.Damage + " damage");
                 Console.ReadKey(true);

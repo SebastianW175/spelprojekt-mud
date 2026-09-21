@@ -7,17 +7,18 @@ namespace MUD
 {
     public class PlayerAction
     {
-        public void PlayerChoiceAction(Player PlayerCar)
+        public void PlayerChoiceAction(Player PlayerCar, Room RoomSet)
         {
-            Console.Write("what will you do:");
             int i = 0;
             while (i < 1)
             {
+                Console.Write("what will you do:");
                 PlayerCar.Choice = Console.ReadLine();
                 switch (PlayerCar.Choice)
                 {
                     case "help":
-                        
+                        Help help = new Help();
+                        help.PlayerHelp(PlayerCar, RoomSet);
                         break;
                     case "inventory":
                         Inventory inventory = new Inventory();
@@ -30,6 +31,10 @@ namespace MUD
                     case "map":
                         Map map = new Map();
                         map.ShowMapGraphic();
+                        break;
+                    case "rest":
+                        Rest rest = new Rest();
+                        rest.PlayerRest(PlayerCar);
                         break;
                     case "north":
                         i = 1;
@@ -46,6 +51,11 @@ namespace MUD
                     default:
                         Console.WriteLine("unknown command");
                         break;
+                }
+                if (i == 0)
+                {
+                    Console.WriteLine("your still in the " + RoomSet.Name);
+                    Console.ReadKey(true);
                 }
             }
         }

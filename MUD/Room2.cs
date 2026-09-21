@@ -8,31 +8,46 @@ namespace MUD
     {
         public void PlayerInRoom2(Room RoomSet, Player PlayerCar)
         {
-            RoomSet.Name = "Room 2";
+            RoomSet.Name = "main hall";
             RoomSet.north = true;
             RoomSet.west = true;
             RoomSet.east = true;
             RoomSet.south = true;
-            Console.WriteLine("you are now in the main hall");
+            Console.WriteLine("you are now in the " + RoomSet.Name);
+            Console.ReadKey(true);
+            Console.WriteLine("there is a door to the north. It looks important...");
             Console.ReadKey(true);
 
             if (PlayerCar.Battle1 == false)
             {
                 Battle battle1 = new Battle();
                 Enemy EnemyCar = new Enemy();
-                battle1.BattleStart(PlayerCar, EnemyCar);
+                battle1.BattleStart(PlayerCar, EnemyCar, RoomSet);
                 PlayerCar.Battle1 = true;
+                Console.WriteLine("your still in the " + RoomSet.Name);
+                Console.ReadKey(true);
             }
 
             while (PlayerCar.roomNumber == 1)
             {
                 PlayerAction yourAction = new PlayerAction();
-                yourAction.PlayerChoiceAction(PlayerCar); 
+                yourAction.PlayerChoiceAction(PlayerCar, RoomSet); 
                 switch (PlayerCar.Choice)
                 {
                     case "north":
-                        Console.WriteLine("you move north");
-                        PlayerCar.roomNumber = 2;
+                        Console.WriteLine("you move to the door");
+                        if (PlayerCar.HasKey == true)
+                        {
+                            DungeonDoor dungeonDoor = new DungeonDoor();
+                            dungeonDoor.OpenDungeonDoor(RoomSet, PlayerCar);
+                        }
+                        else
+                        {
+                            Console.WriteLine("the door is locked");
+                            Console.ReadKey(true);
+                            Console.WriteLine("you go back");
+                            Console.ReadKey(true);
+                        }
                         break;
                     case "west":
                         Console.WriteLine("you move west");

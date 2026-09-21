@@ -8,7 +8,7 @@ namespace MUD
     {
         public void StatusCheck(Player PlayerCar)
         {
-            Console.WriteLine("(check status?)");
+            Console.WriteLine("check status?");
             int i = 0;
             while (i < 1)
             {

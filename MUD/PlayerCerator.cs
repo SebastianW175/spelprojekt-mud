@@ -13,7 +13,7 @@ namespace MUD
             Console.Write("Enter your age:");
             PlayerCar.age = Console.ReadLine();
             Console.WriteLine("Enter your character class.");
-            Console.WriteLine("warior   tank   mage");
+            Console.WriteLine("warrior   tank   mage");
 
             int i = 0;
             while (i < 1)
@@ -22,8 +22,8 @@ namespace MUD
                 PlayerCar.Choice = Console.ReadLine();
                 switch (PlayerCar.Choice)
                 {
-                    case "warior":
-                        PlayerCar.Cclass = "warior";
+                    case "warrior":
+                        PlayerCar.Cclass = "warrior";
                         PlayerCar.AttackPow = 10;
                         PlayerCar.DefensePow = 3;
                         PlayerCar.MagicPow = 4;
@@ -44,7 +44,7 @@ namespace MUD
                         i = 1;
                         break;
                     default:
-                        Console.WriteLine("unknown command. Enter 'warior', 'tank', or 'mage' next time.");
+                        Console.WriteLine("unknown command. Enter 'warrior', 'tank', or 'mage' next time.");
                         break;
                 }
             }
@@ -60,6 +60,9 @@ namespace MUD
             PlayerCar.Chest1 = false;
             PlayerCar.Chest2 = false;
             PlayerCar.Chest3 = false;
+            PlayerCar.Weapon = "Nothing";
+            PlayerCar.Armor = "Nothing";
+            PlayerCar.Ring = "Nothing";
         }
     }
 }

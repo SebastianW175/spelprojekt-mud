@@ -12,6 +12,7 @@ namespace MUD
             while (i < 1)
             {
                 Console.ReadKey(true);
+                Console.WriteLine("------------------------------------------------------------------------");
                 if (PlayerCar.roomNumber == 0)
                 {
                     Room1 room1 = new Room1();

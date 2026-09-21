@@ -22,24 +22,21 @@ namespace MUD.Worlds
             PlayerCerator you = new PlayerCerator();
             you.PlayerCerate(PlayerCar);
 
-            Console.WriteLine("(you are " + PlayerCar.Name + ")");
-            Console.WriteLine("(a " + PlayerCar.age + " year old " + PlayerCar.Cclass + ")");
+            Console.WriteLine("you are " + PlayerCar.Name);
+            Console.WriteLine("a " + PlayerCar.age + " year old " + PlayerCar.Cclass);
 
             PlayerStatus check = new PlayerStatus();
             check.StatusCheck(PlayerCar);
 
             Console.WriteLine("ok. Now you are ready to explore the dungeon.");
             Console.ReadKey(true);
-            Console.WriteLine("and remember, if you need help, you can always check your status.");
+            Console.WriteLine("and remember, if you have any troubles, type 'help' for assistance.");
             Console.ReadKey(true);
             Console.WriteLine("------------------------------------------------------------------------");
-            Console.WriteLine("you enter the dungeon and now are in the first room.");
+            Console.WriteLine("you enter the dungeon and now are in the first room");
 
             Dungeon inDungeon = new Dungeon();
             inDungeon.DungeonStart(PlayerCar, RoomSet);
-
-            Battle fight = new Battle();
-            fight.BattleStart(PlayerCar, EnemyCar);
         }
     }
 }

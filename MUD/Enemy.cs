@@ -11,7 +11,14 @@ namespace MUD
         public int Damage;
         public int MaxHealth;
         public int AttackPow;
+        public int DefensePow;
         public int MagicPow;
         public bool Dead;
+        public string[]? Enemys = new string[] 
+        { 
+            "Goblin", 
+            "Skeleton", 
+            "Wizard" 
+        };
     }
 }

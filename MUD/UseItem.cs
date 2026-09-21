@@ -50,8 +50,11 @@ namespace MUD
                                 PlayerCar.Health = PlayerCar.MaxHealth;
                                 Console.WriteLine("You used an HP Potion. Your health is fully restored.");
                             }
-                            PlayerCar.Inventory.Remove("HP Potion");
-                            Console.WriteLine("You used an HP Potion. You have " + PlayerCar.Health + "/" + PlayerCar.MaxHealth + " HP");
+                            else
+                            {
+                                PlayerCar.Inventory.Remove("HP Potion");
+                                Console.WriteLine("You used an HP Potion. You have " + PlayerCar.Health + "/" + PlayerCar.MaxHealth + " HP");
+                            }
                         }
                         else
                         {
@@ -69,8 +72,11 @@ namespace MUD
                                 PlayerCar.MagicPoints = PlayerCar.MaxMagicPoints;
                                 Console.WriteLine("You used an MP Potion. Your magic is maxed out.");
                             }
-                            PlayerCar.Inventory.Remove("MP Potion");
-                            Console.WriteLine("You used an MP Potion. You have " + PlayerCar.MagicPoints + "/" + PlayerCar.MaxMagicPoints + " MP");
+                            else
+                            {
+                                PlayerCar.Inventory.Remove("MP Potion");
+                                Console.WriteLine("You used an MP Potion. You have " + PlayerCar.MagicPoints + "/" + PlayerCar.MaxMagicPoints + " MP");
+                            }
                         }
                         else
                         {
@@ -103,8 +109,11 @@ namespace MUD
                                 PlayerCar.MagicPoints = PlayerCar.MaxMagicPoints;
                                 Console.WriteLine("You used a Steel Potion. Your defense has increased temporarily and your MP is maxed out.");
                             }
-                            PlayerCar.Inventory.Remove("Steel Potion");
-                            Console.WriteLine("You used a Steel Potion. Your defense has increased temporarily and you have " + PlayerCar.MagicPoints + "/" + PlayerCar.MaxMagicPoints + " MP.");
+                            else
+                            {
+                                PlayerCar.Inventory.Remove("Steel Potion");
+                                Console.WriteLine("You used a Steel Potion. Your defense has increased temporarily and you have " + PlayerCar.MagicPoints + "/" + PlayerCar.MaxMagicPoints + " MP.");
+                            }
                         }
                         else
                         {
